@@ -1,6 +1,6 @@
-# Instagram Api plugin for Craft CMS 3.x
+# Craft Instagram Api plugin for Craft CMS 3.x
 
-Instagram Api guzzle endpoint plugin for JS to consume as AJAX
+Craft Instagram Api guzzle endpoint plugin for JS to consume as AJAX
 
 ![Screenshot](resources/img/plugin-logo.png)
 
@@ -18,17 +18,19 @@ To install the plugin, follow these instructions.
 
 2. Then tell Composer to load the plugin:
 
-        composer require admench/instagram-api
+        composer require admench/craft-instagram
 
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Instagram Api.
+3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Craft Instagram.
 
-## Instagram Api Overview
+## Craft Instagram Overview
 
 Simple Instagram Api endpoint for Craft CMS - intended for Javascript to consume as AJAX post request, returning users feed
 
 ## Configuring Instagram Api
 
 Make sure you create a `.env` variable with your Instagram Access Token as `INSTAGRAM_ACCESS_TOKEN`
+
+Make sure you create a `.env` variable with your required number of posts as `INSTAGRAM_COUNT`
 
 ## Using Instagram Api
 
@@ -54,7 +56,7 @@ export default {
 			CRAFT_CSRF_TOKEN: this.csrfToken
 		});
 		axios
-			.post("/actions/instagram-api/feed", qsparams)
+			.post("/actions/craft-instagram/feed", qsparams)
 			.then(response => {
 				this.instagramFeed = response.data;
 			})
@@ -63,26 +65,22 @@ export default {
 				console.log("error: " + e);
 				console.log(e);
 			});
-	},
-	computed: {
-		feedReady() {
-			return true;
-			return this.instagramFeed.meta.code == 200;
-		}
 	}
 };
 </script>
 
 <template>
     <div>
-		<transition name="bounce-left">
-			<div v-if="feedReady">
-				<img v-for="post in instagramFeed.data" :src="post.images.thumbnail.url" alt="">
-			</div>
-		</transition>
+
+		<div>
+			<img v-for="post in instagramFeed.data" :src="post.images.thumbnail.url">
+		</div>
+
+		// See what the response is
 		<pre>
 			{{ instagramFeed }}
 		</pre>
+
 	</div>
 </template>
 ```
