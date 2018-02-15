@@ -24,15 +24,68 @@ To install the plugin, follow these instructions.
 
 ## Instagram Api Overview
 
--Insert text here-
+Simple Instagram Api endpoint for Craft CMS - intended for Javascript to consume as AJAX post request, returning users feed
 
 ## Configuring Instagram Api
 
--Insert text here-
+Make sure you create a `.env` variable with your Instagram Access Token as `INSTAGRAM_ACCESS_TOKEN`
 
 ## Using Instagram Api
 
--Insert text here-
+Here is an example Vue Component which consumes the endpoint `/actions/instagram-api/feed`:
+
+```
+<script>
+export default {
+	props: ["csrfToken"],
+	data() {
+		return {
+			instagramFeed: {
+				data: [],
+				meta: {
+					code: null
+				},
+				pagination: {}
+			}
+		};
+	},
+	created() {
+		var qsparams = qs.stringify({
+			CRAFT_CSRF_TOKEN: this.csrfToken
+		});
+		axios
+			.post("/actions/instagram-api/feed", qsparams)
+			.then(response => {
+				this.instagramFeed = response.data;
+			})
+			.catch(e => {
+				this.instagramFeed = e;
+				console.log("error: " + e);
+				console.log(e);
+			});
+	},
+	computed: {
+		feedReady() {
+			return true;
+			return this.instagramFeed.meta.code == 200;
+		}
+	}
+};
+</script>
+
+<template>
+    <div>
+		<transition name="bounce-left">
+			<div v-if="feedReady">
+				<img v-for="post in instagramFeed.data" :src="post.images.thumbnail.url" alt="">
+			</div>
+		</transition>
+		<pre>
+			{{ instagramFeed }}
+		</pre>
+	</div>
+</template>
+```
 
 ## Instagram Api Roadmap
 
