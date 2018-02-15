@@ -1,0 +1,38 @@
+{
+    "name": "youi/instagram-api",
+    "description": "Instagram Api guzzle endpoint plugin for JS to consume as AJAX",
+    "type": "craft-plugin",
+    "version": "1.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "instagram api"
+    ],
+    "support": {
+        "docs": "https://github.com/admench/instagram-api/blob/master/README.md",
+        "issues": "https://github.com/admench/instagram-api/issues"
+    },
+    "license": "MIT",
+    "authors": [{
+        "name": "Adam Menczykowski",
+        "homepage": "https://youi.design"
+    }],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+            "youi\\instagramapi\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Instagram Api",
+        "handle": "instagram-api",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/admench/instagram-api/master/CHANGELOG.md",
+        "class": "youi\\instagramapi\\InstagramApi"
+    }
+}
