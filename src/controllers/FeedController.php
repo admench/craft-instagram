@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2018 Adam Menczykowski
  */
 
-namespace youi\instagramapi\controllers;
+namespace admench\instagramapi\controllers;
 
 use Craft;
 use craft\web\Controller;
@@ -43,7 +43,7 @@ class FeedController extends Controller
         $response = $client->get('https://api.instagram.com/v1/users/self/media/recent', [
             'query' => [
                 'access_token' => getenv("INSTAGRAM_ACCESS_TOKEN"),
-                'count' => 4
+                'count' => getenv("INSTAGRAM_FEED_COUNT")
             ]
         ]);
         try {

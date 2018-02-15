@@ -1,5 +1,5 @@
 {
-	"name": "admench/craft-instagram-api",
+	"name": "admench/instagram-api",
 	"description":
 		"Simple Instagram Api endpoint for Craft CMS - intended for Javascript to consume as AJAX post request, returning users feed",
 	"type": "craft-plugin",
@@ -7,13 +7,13 @@
 	"keywords": ["craft", "cms", "craftcms", "craft-plugin", "instagram api"],
 	"support": {
 		"docs":
-			"https://github.com/admench/instagram-api/blob/master/README.md",
-		"issues": "https://github.com/admench/instagram-api/issues"
+			"https://github.com/admench/craft-instagram-api/blob/master/README.md",
+		"issues": "https://github.com/admench/craft-instagram-api/issues"
 	},
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Adam Menczykowski",
+			"name": "You I",
 			"homepage": "https://youi.design"
 		}
 	],
@@ -31,7 +31,7 @@
 		"hasCpSettings": false,
 		"hasCpSection": false,
 		"changelogUrl":
-			"https://raw.githubusercontent.com/admench/instagram-api/master/CHANGELOG.md",
+			"https://raw.githubusercontent.com/admench/craft-instagram-api/master/CHANGELOG.md",
 		"class": "admench\\instagramapi\\InstagramApi"
 	}
 }
