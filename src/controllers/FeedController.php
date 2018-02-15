@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2018 Adam Menczykowski
  */
 
-namespace admench\instagramapi\controllers;
+namespace admench\craftinstagram\controllers;
 
 use Craft;
 use craft\web\Controller;
@@ -19,7 +19,7 @@ use craft\web\Controller;
  *
  *
  * @author    Adam Menczykowski
- * @package   InstagramApi
+ * @package   CraftInstagram
  * @since     1
  */
 class FeedController extends Controller

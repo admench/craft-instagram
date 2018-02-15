@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2018 Adam Menczykowski
  */
 
-namespace admench\instagramapi;
+namespace admench\craftinstagram;
 
 
 use Craft;
@@ -36,7 +36,7 @@ use yii\base\Event;
  * @since     1
  *
  */
-class InstagramApi extends Plugin
+class CraftInstagram extends Plugin
 {
     // Static Properties
     // =========================================================================
@@ -45,7 +45,7 @@ class InstagramApi extends Plugin
      * Static property that is an instance of this plugin class so that it can be accessed via
      * InstagramApi::$plugin
      *
-     * @var InstagramApi
+     * @var CraftInstagram
      */
     public static $plugin;
 
@@ -83,7 +83,7 @@ class InstagramApi extends Plugin
             UrlManager::class,
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['siteActionTrigger1'] = 'instagram-api/feed';
+                $event->rules['siteActionTrigger1'] = 'craft-instagram/feed';
             }
         );
 
@@ -108,7 +108,7 @@ class InstagramApi extends Plugin
          */
         Craft::info(
             Craft::t(
-                'instagram-api',
+                'craft-instagram',
                 '{name} plugin loaded',
                 ['name' => $this->name]
             ),
